@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Mood Music </h1>
+    <div class="container" id="mainContainer">
+        <h1>Mood Based Music Player</h1>
         <div class="mood-selector">
             <label for="mood">How are you feeling?</label>
-            <select id="mood">
+            <select id="mood" onchange="updateBackground()">
                 <option value="">Select Mood</option>
                 <option value="happy">Happy</option>
                 <option value="sad">Sad</option>
@@ -20,14 +20,17 @@
             </select>
         </div>
         <div class="controls">
-            <button id="startButton" onclick="playMusic()">Start</button>
-            <button id="pauseButton" onclick="pauseMusic()">Pause</button>
-            <button id="stopButton" onclick="stopMusic()">Stop</button>
+            <button id="startButton" onclick="startMusic()">Start</button>
         </div>
         <audio id="audioPlayer" controls style="display: none;">
             <source id="audioSource" src="" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+    </div>
+    <div class="floating-controls" id="floatingControls">
+        <button onclick="pauseMusic()">Pause</button>
+        <button onclick="resumeMusic()">Resume</button>
+        <button onclick="stopMusic()">Stop</button>
     </div>
     <script src="script.js"></script>
 </body>

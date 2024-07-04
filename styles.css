@@ -1,27 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #333;
+    transition: background 0.3s ease-in-out;
+}
+
+body.happy-bg {
+    background: url('https://art.pixilart.com/sr2728ab59bd2a6.gif') center/cover no-repeat;
+}
+
+body.sad-bg {
+    background: url('https://art.pixilart.com/9133f78b6f2a.gif') center/cover no-repeat;
+}
+
+body.relaxed-bg {
+    background: url('https://art.pixilart.com/9133f78b6f2a.gif') center/cover no-repeat;
+}
+
+body.energetic-bg {
+    background: url('https://art.pixilart.com/sr233cfe8cdc42e.gif') center/cover no-repeat;
 }
 
 .container {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 1s ease-in-out;
+}
+
+.container.hidden {
+    opacity: 0;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 25px;
-    color: #343a40;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background: #007bff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    border-radius: 2px;
 }
 
 .mood-selector {
@@ -30,64 +75,109 @@ h1 {
 
 label {
     font-size: 18px;
-    color: #495057;
+    color: #666;
     display: block;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 select {
     width: 100%;
-    padding: 12px;
-    border-radius: 6px;
+    padding: 15px;
+    border-radius: 8px;
     border: 1px solid #ced4da;
     font-size: 16px;
     color: #495057;
-    background-color: #ffffff;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 select:focus {
     border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
 .controls {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 button {
-    padding: 12px 20px;
-    border-radius: 6px;
+    padding: 15px 25px;
+    border-radius: 8px;
     border: none;
-    background-color: #00fa0c;
+    background-color: #007bff;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 500px) {
+button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.floating-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.floating-controls button {
+    background-color: #28a745;
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.floating-controls button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 600px) {
     .container {
         padding: 20px;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     select {
         font-size: 14px;
+        padding: 12px;
     }
 
     button {
-        width: 100%;
         font-size: 14px;
+        padding: 10px;
     }
 }
