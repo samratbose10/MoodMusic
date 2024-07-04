@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Based Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mood Based Music Player</h1>
+        <div class="mood-selector">
+            <label for="mood">How are you feeling?</label>
+            <select id="mood" onchange="playMusic()">
+                <option value="">Select Mood</option>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="relaxed">Relaxed</option>
+                <option value="energetic">Energetic</option>
+            </select>
+        </div>
+        <audio id="audioPlayer" controls>
+            <source id="audioSource" src="" type="audio/mpeg">
+            browser does not support 
+        </audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
