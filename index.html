@@ -8,10 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Mood Based Music Player</h1>
+        <h1>Mood Music </h1>
         <div class="mood-selector">
             <label for="mood">How are you feeling?</label>
-            <select id="mood" onchange="playMusic()">
+            <select id="mood">
                 <option value="">Select Mood</option>
                 <option value="happy">Happy</option>
                 <option value="sad">Sad</option>
@@ -19,9 +19,14 @@
                 <option value="energetic">Energetic</option>
             </select>
         </div>
-        <audio id="audioPlayer" controls>
+        <div class="controls">
+            <button id="startButton" onclick="playMusic()">Start</button>
+            <button id="pauseButton" onclick="pauseMusic()">Pause</button>
+            <button id="stopButton" onclick="stopMusic()">Stop</button>
+        </div>
+        <audio id="audioPlayer" controls style="display: none;">
             <source id="audioSource" src="" type="audio/mpeg">
-            browser does not support 
+            Your browser does not support the audio element.
         </audio>
     </div>
     <script src="script.js"></script>
